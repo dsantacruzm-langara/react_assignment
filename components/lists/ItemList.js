@@ -2,6 +2,7 @@ import { FlatList } from "native-base";
 import ItemCard from "../listedItems/ItemCard";
 
 const ItemList = ({ movieList }) => {
+    
   return (
     <FlatList
       data={movieList.results}

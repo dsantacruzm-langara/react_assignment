@@ -1,19 +1,16 @@
-import axios from "axios";
-import qs from "qs";
 import {
   APP_KEY,
   BASE_URL,
-  NOW_PLAYING_MOVIES_URL,
-  POPULAR_MOVIES_URL,
-  TOP_RATED_MOVIES_URL,
-  UPCOMING_MOVIES_URL,
+  POPULAR_TV_URL,
+  ON_THE_AIR_TV_URL,
+  AIRING_TODAY_TV_URL
 } from "../config/tmdb_api_config";
 
-const fetchMoviesFromApi = async (selectedFilter) => {
+const fetchTvShowsFromApi = async (selectedFilter) => {
   console.log(selectedFilter);
 
-  const getTopRatedMovies = async () => {
-    const url = BASE_URL + TOP_RATED_MOVIES_URL + "?api_key=" + APP_KEY;
+  const getPopularTvShows = async () => {
+    const url = BASE_URL + POPULAR_TV_URL + "?api_key=" + APP_KEY;
     const fetchData = async () => {
       const apiCall = await fetch(url);
       const response = await apiCall.json();
@@ -24,8 +21,8 @@ const fetchMoviesFromApi = async (selectedFilter) => {
     return await fetchData();
   };
 
-  const getNowPlayingMovies = async () => {
-    const url = BASE_URL + NOW_PLAYING_MOVIES_URL + "?api_key=" + APP_KEY;
+  const getOnTheAirShows = async () => {
+    const url = BASE_URL + ON_THE_AIR_TV_URL + "?api_key=" + APP_KEY;
     const fetchData = async () => {
       const apiCall = await fetch(url);
       const response = await apiCall.json();
@@ -36,8 +33,8 @@ const fetchMoviesFromApi = async (selectedFilter) => {
     return await fetchData();
   };
 
-  const getPopularMovies = async () => {
-    const url = BASE_URL + POPULAR_MOVIES_URL + "?api_key=" + APP_KEY;
+  const getAiringTodayTvShows = async () => {
+    const url = BASE_URL + AIRING_TODAY_TV_URL + "?api_key=" + APP_KEY;
     const fetchData = async () => {
       const apiCall = await fetch(url);
       const response = await apiCall.json();
@@ -61,7 +58,7 @@ const fetchMoviesFromApi = async (selectedFilter) => {
 //  }
 //   return await swithFunction(selectedFilter);
 
-  return getPopularMovies();
+  return getAiringTodayTvShows();
 };
 
 export default fetchMoviesFromApi;

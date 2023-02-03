@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { Center, Box, Select, CheckIcon } from "native-base";
 
-const Dropdown = ( { dropDownValues, fetchData } ) => {
+const Dropdown = ({ dropDownValues, fetchData }) => {
   const [service, setService] = useState("");
+
+  console.log(dropDownValues);
 
   const onSelection = async (selectedValue) => {
     setService(selectedValue);
     await fetchData(service);
-  }
-
+  };
 
   return (
     <Center>
